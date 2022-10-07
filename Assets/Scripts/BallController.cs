@@ -9,12 +9,14 @@ public class BallController : MonoBehaviour
     private Rigidbody2D rigid;
     public float smoothTime = 0.3f;
     Vector2 currentVelocity;
+    private Transform transform;
 
     private void Start()
     {
         //rigid = GetComponent<Rigidbody>();
         
         rigid = GetComponent<Rigidbody2D>();
+        transform = GetComponent<Transform>();
     }
 
     private void Update()
@@ -29,8 +31,9 @@ public class BallController : MonoBehaviour
             rigid.AddForce(-Vector3.right * speed);
         }*/
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = Vector2.SmoothDamp(transform.position.x, mousePosition, ref currentVelocity, smoothTime, speed);
-
-
+        if(Input.GetMouseButton(0))
+        {
+            transform.position = new Vector3(mousePosition.x, transform.position.y, 0);
+        }
     }
 }
