@@ -7,7 +7,8 @@ public class BallController : MonoBehaviour
     // Start is called before the first frame update
     public float speed = 5f;
     private Rigidbody2D rigid;
-
+    public float smoothTime = 0.3f;
+    Vector2 currentVelocity;
 
     private void Start()
     {
@@ -15,8 +16,6 @@ public class BallController : MonoBehaviour
         
         rigid = GetComponent<Rigidbody2D>();
     }
-    public float smoothTime = 0.3f;
-    Vector2 currentVelocity;
 
     private void Update()
     {
@@ -30,7 +29,7 @@ public class BallController : MonoBehaviour
             rigid.AddForce(-Vector3.right * speed);
         }*/
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = Vector2.SmoothDamp(transform.position, mousePosition, ref currentVelocity, smoothTime, speed);
+        transform.position = Vector2.SmoothDamp(transform.position.x, mousePosition, ref currentVelocity, smoothTime, speed);
 
 
     }
