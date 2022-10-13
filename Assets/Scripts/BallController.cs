@@ -10,6 +10,7 @@ public class BallController : MonoBehaviour
     public float smoothTime = 0.3f;
     Vector2 currentVelocity;
     private Transform transform;
+    
 
     private void Start()
     {
@@ -35,5 +36,11 @@ public class BallController : MonoBehaviour
         {
             transform.position = new Vector3(mousePosition.x, transform.position.y, 0);
         }
+        
+        // if(Input.touchCount > 0){
+        //     Touch touch = Input.GetTouch(0);
+        //     Vector2 position = touch.position;
+        //     transform.position.x = position.x;
+        // }
     }
 }
