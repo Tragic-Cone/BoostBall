@@ -13,7 +13,7 @@ public class PlatformSpawning: MonoBehaviour
     {
         Vector3 spawnPosition = new Vector3();
         float xPosition = Random.Range(-5f, 5f);
-        float yPosition = 5f;
+        float yPosition = 10f;
 
         for (int i = 0; i < platformCount; i++)
         {

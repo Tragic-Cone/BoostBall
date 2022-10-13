@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1368
     height: 840
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Project
   m_RootView: {fileID: 3}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 21
+  controlID: 17
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -401,7 +401,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: d2f9fffffefaffff70540000
+      m_ExpandedIDs: 2afbffffcc520000d6520000fa520000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -672,9 +672,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.34687626, y: 1.5763234, z: -0.9213153}
+    m_Target: {x: 1.1535473, y: -1.5973929, z: 0.04310439}
     speed: 2
-    m_Value: {x: 0.34687626, y: 1.5763234, z: -0.9213153}
+    m_Value: {x: 1.1535473, y: -1.5973929, z: 0.04310439}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -725,9 +725,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 12.531703
+    m_Target: 11.856351
     speed: 2
-    m_Value: 12.531703
+    m_Value: 11.856351
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -793,22 +793,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Sprites/Platforms
+    - Assets/Sprites/Platforms/holograph
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Sprites/Platforms
+  - Assets/Sprites/Platforms/holograph
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\cbree\OneDrive\Documents\GitHub\BoostBall
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 42.996826}
-    m_SelectedIDs: b4530000
-    m_LastClickedID: 21428
-    m_ExpandedIDs: 00000000b0530000b2530000b453000000ca9a3bffffff7f
+    m_SelectedIDs: da530000
+    m_LastClickedID: 21466
+    m_ExpandedIDs: 00000000785300007a53000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -836,7 +836,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000b0530000b2530000b4530000
+    m_ExpandedIDs: 00000000785300007a530000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
