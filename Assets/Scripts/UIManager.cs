@@ -5,10 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    //GameObjects for panels
     public GameObject mainMenuPanel;
     public GameObject leaderboardPanel;
     public GameObject customizationPanel;
     public GameObject accountPanel;
+
+    //Customization panel variables
+    public int selectedBall = 1;
+    public enum ballSelection{
+        DefaultBall,
+        GreenBall,
+        RedBall,
+        YellowBall,
+        PinkBall,
+        BowlingBall,
+        BeachBall
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -68,4 +81,36 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene("GameplayScene");
     }
+
+    public void buyBeachBall(){
+        //something
+    }
+
+    public void buyBowlingBall(){
+        //something
+    }
+
+    public void buyGreenBall(){
+        //something
+    }
+
+    public void buyPinkBall(){
+        //something
+    }
+
+    public void buyRedBall(){
+        //something
+    }
+
+    public void buyYellowBall(){
+        //something
+    }
+
+    public void pressSelectButton(){
+        /* If selected ball is unlocked, select the 
+        ball and then go back to main menu */
+        showMainMenuPanel();
+    }
+
+
 }
