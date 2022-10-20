@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class CollisionDelete : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        //Destroys object that this script is attached to
+        Destroy(this.gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
