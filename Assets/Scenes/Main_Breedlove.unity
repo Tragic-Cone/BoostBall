@@ -897,7 +897,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1313941004}
   m_Layer: 0
-  m_Name: PlatformMovement
+  m_Name: Moving Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -932,7 +932,7 @@ GameObject:
   - component: {fileID: 1607389564}
   - component: {fileID: 1607389563}
   m_Layer: 0
-  m_Name: PlatformSpawning
+  m_Name: Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
