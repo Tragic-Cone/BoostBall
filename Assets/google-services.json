@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "728551354352",
+    "firebase_url": "https://boostball-6c01f-default-rtdb.firebaseio.com",
+    "project_id": "boostball-6c01f",
+    "storage_bucket": "boostball-6c01f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:728551354352:android:c0e634b44aa1d65a1db735",
+        "android_client_info": {
+          "package_name": "com.TragicCone.BoostBall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "728551354352-31c4da7r8gjv3fgo4l7gtbnh8abg62ie.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqErIrMAa-oOqElMUXpRkaz7_0iIKT4wo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "728551354352-31c4da7r8gjv3fgo4l7gtbnh8abg62ie.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
