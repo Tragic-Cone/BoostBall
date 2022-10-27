@@ -6,8 +6,11 @@ public class CollisionDelete : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Destroys object that this script is attached to
-        Destroy(this.gameObject);
-    }
+        if (collision.gameObject.tag == "enemy")
+        {
+            //Destroys object that this script is attached to
+            Destroy(this.gameObject);
 
+        }
+    }
 }
