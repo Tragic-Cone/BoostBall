@@ -36,11 +36,5 @@ public class BallController : MonoBehaviour
         {
             transform.position = new Vector3(mousePosition.x, transform.position.y, 0);
         }
-        
-        // if(Input.touchCount > 0){
-        //     Touch touch = Input.GetTouch(0);
-        //     Vector2 position = touch.position;
-        //     transform.position.x = position.x;
-        // }
     }
 }
