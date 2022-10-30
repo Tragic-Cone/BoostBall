@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe8e90ea230e5e240812edac426f55dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 1
+  speed: 0.002
 --- !u!1 &7607417902571175058
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb79e993782322d4b84cf06e5217088b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 15
+  jumpForce: 20
 --- !u!114 &394270557
 MonoBehaviour:
   m_ObjectHideFlags: 0

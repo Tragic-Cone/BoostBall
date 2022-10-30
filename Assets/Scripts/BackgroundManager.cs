@@ -23,8 +23,8 @@ public class BackgroundManager : MonoBehaviour
         {
             constant.transform.position = new Vector3(constant.transform.position.x, -(distance / 1000f), constant.transform.position.z);
         }
-        city1.transform.position = new Vector3(constant.transform.position.x, -(distance / 900f), constant.transform.position.z);
-        city2.transform.position = new Vector3(constant.transform.position.x, -(distance / 750f), constant.transform.position.z);
-        city3.transform.position = new Vector3(constant.transform.position.x, -(distance / 600f), constant.transform.position.z);
+        city1.transform.position = new Vector3(constant.transform.position.x, -(distance / 450f) + 12 , constant.transform.position.z);
+        city2.transform.position = new Vector3(constant.transform.position.x, -(distance / 400f) + 12, constant.transform.position.z);
+        city3.transform.position = new Vector3(constant.transform.position.x, -(distance / 350f) + 12, constant.transform.position.z);
     }
 }
