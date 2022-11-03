@@ -4,7 +4,7 @@ using UnityEngine;
 //CadeBreedlove
 public class LazerBeam : MonoBehaviour
 {
-    public bool enabled = true;
+    public bool enabled;
 
     // Start is called before the first frame update
     void Start()
@@ -15,11 +15,11 @@ public class LazerBeam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(this.gameObject.name == "beam_12")
+        if(this.gameObject.GetComponent<SpriteRenderer>().sprite.name == "beam_12")
         {
             ToggleBeam();
         }
-        else if (this.gameObject.name == "beam_0")
+        else if (this.gameObject.GetComponent<SpriteRenderer>().sprite.name == "beam_0")
         {
             ToggleBeam();
         }
@@ -30,10 +30,9 @@ public class LazerBeam : MonoBehaviour
         enabled = !enabled;
         foreach (Transform gameobject in gameObject.transform)
         {
-            if (this.gameObject.name == "beam")
-            {
-                this.gameObject.SetActive(enabled);
-            }
+        
+                gameobject.gameObject.SetActive(enabled);
+            
         }
     }
 }

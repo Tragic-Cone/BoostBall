@@ -36,6 +36,7 @@ public class PlatformSpawning: MonoBehaviour
                  spawnPosition.x = xPosition;
                  Instantiate(platformPrefab3, spawnPosition, Quaternion.identity);
              }
+             platformCount++;
         }
 
     }
