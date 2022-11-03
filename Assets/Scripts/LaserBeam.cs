@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //CadeBreedlove
-public class LazerBeam : MonoBehaviour
+public class LaserBeam : MonoBehaviour
 {
     public bool enabled;
 
