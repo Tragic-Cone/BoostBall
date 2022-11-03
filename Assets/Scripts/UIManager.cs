@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public GameObject leaderboardPanel;
     public GameObject customizationPanel;
     public GameObject accountPanel;
+    public GameObject gameOverlay;
 
     //Customization panel variables
     public int selectedBall = 1;
@@ -29,6 +30,7 @@ public class UIManager : MonoBehaviour
         leaderboardPanel.SetActive(false);
         customizationPanel.SetActive(false);
         accountPanel.SetActive(false);
+        gameOverlay.SetActive(false);
     }
 
     // Update is called once per frame
@@ -43,6 +45,7 @@ public class UIManager : MonoBehaviour
         leaderboardPanel.SetActive(false);
         customizationPanel.SetActive(false);
         accountPanel.SetActive(false);
+        gameOverlay.SetActive(false);
     }
 
     public void showLeaderboardPanel()
@@ -51,6 +54,7 @@ public class UIManager : MonoBehaviour
         leaderboardPanel.SetActive(true);
         customizationPanel.SetActive(false);
         accountPanel.SetActive(false);
+        gameOverlay.SetActive(false);
     }
 
     public void showCustomizationPanel()
@@ -59,6 +63,7 @@ public class UIManager : MonoBehaviour
         leaderboardPanel.SetActive(false);
         customizationPanel.SetActive(true);
         accountPanel.SetActive(false);
+        gameOverlay.SetActive(false);
     }
 
     public void showAccountPanel()
@@ -67,6 +72,7 @@ public class UIManager : MonoBehaviour
         leaderboardPanel.SetActive(false);
         customizationPanel.SetActive(false);
         accountPanel.SetActive(true);
+        gameOverlay.SetActive(false);
     }
 
     public void showGameplayPanel()
@@ -75,11 +81,16 @@ public class UIManager : MonoBehaviour
         leaderboardPanel.SetActive(false);
         customizationPanel.SetActive(false);
         accountPanel.SetActive(true);
+        gameOverlay.SetActive(false);
     }
 
     public void loadGameplayScene()
     {
-        SceneManager.LoadScene("GameplayScene");
+        mainMenuPanel.SetActive(false);
+        leaderboardPanel.SetActive(false);
+        customizationPanel.SetActive(false);
+        accountPanel.SetActive(false);
+        gameOverlay.SetActive(true);
     }
 
     public void buyBeachBall(){
