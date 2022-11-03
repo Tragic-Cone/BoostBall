@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 12b1e73d184c4564f82ce6ca9473b235
+guid: bd719c0427e196649a0b2aa197929e2f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -102,7 +102,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -114,7 +114,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -129,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: holographic_0
+      name: tube_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 160
-        height: 32
+        width: 28
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6022385e8d6af3342979111e1e47d7f0
-      internalID: 70511741
+      spriteID: 7ac0f09cabf94914d82ce35cca0d6ffa
+      internalID: -1668896020
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: holographic_1
+      name: tube_1
       rect:
         serializedVersion: 2
-        x: 160
+        x: 28
         y: 0
-        width: 160
-        height: 32
+        width: 28
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,20 +164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47e6d84d5b89c5746af0be462e12d120
-      internalID: -568373859
+      spriteID: de05b4d73b75e78469da152a166331da
+      internalID: 504545653
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: holographic_2
+      name: tube_2
       rect:
         serializedVersion: 2
-        x: 320
+        x: 56
         y: 0
-        width: 160
-        height: 32
+        width: 28
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,20 +185,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d1935453af25964da1a962a3c909a6b
-      internalID: 669952989
+      spriteID: 343b37af3d428ce499d8212dcaf305d3
+      internalID: 1506229813
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: holographic_3
+      name: tube_3
       rect:
         serializedVersion: 2
-        x: 480
+        x: 84
         y: 0
-        width: 160
-        height: 32
+        width: 28
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,20 +206,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 460b61ceb35659949b836018d5138531
-      internalID: 1525123279
+      spriteID: 3bdf36e2dd567494b8c48e2114de3cde
+      internalID: -1853769868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: holographic_4
+      name: tube_4
       rect:
         serializedVersion: 2
-        x: 640
+        x: 112
         y: 0
-        width: 160
-        height: 32
+        width: 28
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,20 +227,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bcd845bc9dccb74382c8078accc2a08
-      internalID: -1526053368
+      spriteID: bb44fd36893ea7541b56abd2aafa0a2e
+      internalID: -1486354392
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: holographic_5
+      name: tube_5
       rect:
         serializedVersion: 2
-        x: 800
+        x: 140
         y: 0
-        width: 160
-        height: 32
+        width: 28
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,29 +248,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1811ad360c614d49af8663de02abeb7
-      internalID: -800425829
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: holographic_6
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 0
-        width: 160
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8bb097249dca04a4a86554e9c18bdb2c
-      internalID: 82308935
+      spriteID: 6f34fe49ac1d7af48886c243e1d15c39
+      internalID: 1774729122
       vertices: []
       indices: 
       edges: []
@@ -286,13 +265,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      holographic_2: 669952989
-      holographic_3: 1525123279
-      holographic_1: -568373859
-      holographic_6: 82308935
-      holographic_0: 70511741
-      holographic_5: -800425829
-      holographic_4: -1526053368
+      tube_3: -1853769868
+      tube_2: 1506229813
+      tube_5: 1774729122
+      tube_0: -1668896020
+      tube_4: -1486354392
+      tube_1: 504545653
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
