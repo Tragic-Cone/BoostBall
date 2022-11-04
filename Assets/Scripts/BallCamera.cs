@@ -8,6 +8,7 @@ public class BallCamera : MonoBehaviour
     public Transform target;
     private Vector3 offset;
     public float x, y, z;
+
     // Update is called once per frame
     private void Start()
     {
@@ -16,7 +17,11 @@ public class BallCamera : MonoBehaviour
     }
     void Update()
     {
-        transform.position = new Vector3(0 + offset.x, target.position.y + offset.y, target.position.z + offset.z);
+        if(target.position.y > transform.position.y)
+        {
+            transform.position = new Vector3(0 + offset.x, target.position.y + offset.y, target.position.z + offset.z);
+        }
+        
         /*transform.position = target.transform.position + new Vector3(x, y, z);
         transform.LookAt(target.transform.position);*/
     }
