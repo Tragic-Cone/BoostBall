@@ -44,7 +44,7 @@ public class ObjectSpawning: MonoBehaviour
 
         Vector3 eSpawnPosition = new Vector3();
         xPosition = Random.Range(-5f, 5f);
-        yPosition = 15f;
+        yPosition = 50f;
 
         for (int i = 0; i < enemyCount; i++)
         {
