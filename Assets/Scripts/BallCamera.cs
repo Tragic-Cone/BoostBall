@@ -12,16 +12,17 @@ public class BallCamera : MonoBehaviour
     // Update is called once per frame
     private void Start()
     {
-        offset = transform.position - target.position;
+        //offset = transform.position - target.position;
 
     }
     void Update()
     {
         if(target.position.y > transform.position.y)
         {
-            transform.position = new Vector3(0 + offset.x, target.position.y + offset.y, target.position.z + offset.z);
+            transform.position = new Vector3(0 + offset.x, target.position.y + offset.y, -10);
+            //target.position.z + offset.z
         }
-        
+
         /*transform.position = target.transform.position + new Vector3(x, y, z);
         transform.LookAt(target.transform.position);*/
     }
