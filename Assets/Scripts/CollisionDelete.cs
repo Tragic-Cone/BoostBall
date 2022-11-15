@@ -12,5 +12,9 @@ public class CollisionDelete : MonoBehaviour
             Destroy(this.gameObject);
 
         }
+        if (collision.gameObject.tag == "start boost")
+        {
+            Destroy(collision.collider.gameObject);
+        }
     }
 }

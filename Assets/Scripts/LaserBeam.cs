@@ -15,11 +15,7 @@ public class LaserBeam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(this.gameObject.GetComponent<SpriteRenderer>().sprite.name == "beam_12")
-        {
-            ToggleBeam();
-        }
-        else if (this.gameObject.GetComponent<SpriteRenderer>().sprite.name == "beam_0")
+        if(this.gameObject.GetComponent<SpriteRenderer>().sprite.name == "beam_13")
         {
             ToggleBeam();
         }
