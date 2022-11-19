@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlatformDisapearing : MonoBehaviour
 {
 
-    public float timeToToggle = 2;
+    public float timeToToggle = 1.25f;
     public float currentTime = 0;
     public bool enabled = true;
 
@@ -23,6 +23,11 @@ public class PlatformDisapearing : MonoBehaviour
         {
             currentTime = 0;
             TogglePlatform();
+            if(currentTime >= .5f)
+            {
+                currentTime = 0;
+                TogglePlatform();
+            }
         }
     }
 

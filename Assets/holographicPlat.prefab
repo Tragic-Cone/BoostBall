@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 7359917401146855661}
   - component: {fileID: 7359917401146855660}
   - component: {fileID: 7359917401146855667}
-  - component: {fileID: 7359917401146855662}
+  - component: {fileID: 7909536282186860542}
   - component: {fileID: 7359917401146855663}
   - component: {fileID: 7359917401146855656}
   m_Layer: 0
@@ -255,7 +255,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7359917401146855662
+--- !u!114 &7909536282186860542
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 214db8f4206f0df4cb874f7aa75e9422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToToggle: 1
+  timeToToggle: 1.25
   currentTime: 0
   enabled: 1
 --- !u!114 &7359917401146855663
