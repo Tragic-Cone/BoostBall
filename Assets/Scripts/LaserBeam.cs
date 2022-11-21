@@ -4,31 +4,24 @@ using UnityEngine;
 //CadeBreedlove
 public class LaserBeam : MonoBehaviour
 {
-    public bool enabled;
+    private PolygonCollider2D collider;
+    private SpriteRenderer z;
 
     // Start is called before the first frame update
     void Start()
     {
-        enabled = false;
+        collider = GetComponent<PolygonCollider2D>();
+        z = GetComponent<SpriteRenderer>();
+        collider.enabled = !collider.enabled;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(this.gameObject.GetComponent<SpriteRenderer>().sprite.name == "beam_13")
+        if (z.sprite.name == "beam_12")
         {
-            ToggleBeam();
+            collider.enabled = !collider.enabled;
         }
     }
 
-    void ToggleBeam()
-    {
-        enabled = !enabled;
-        foreach (Transform gameobject in gameObject.transform)
-        {
-        
-                gameobject.gameObject.SetActive(enabled);
-            
-        }
-    }
 }

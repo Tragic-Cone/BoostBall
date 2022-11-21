@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5281375099494556919}
   - component: {fileID: 5281375099494556913}
   - component: {fileID: 5281375099494556918}
-  - component: {fileID: 5281375099494556921}
   - component: {fileID: 5281375099494556920}
+  - component: {fileID: 7956196074458430725}
   m_Layer: 0
   m_Name: beam
   m_TagString: enemy
@@ -107,19 +107,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5281375099494556921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5281375099494556916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b921cf9f27c19d44eadfc2ab34337ee7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enabled: 0
 --- !u!60 &5281375099494556920
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -160,6 +147,20 @@ PolygonCollider2D:
       - {x: 3.5281053, y: 0.09571448}
       - {x: 3.495948, y: 0.11677726}
       - {x: 3.431122, y: 0.19079955}
+--- !u!114 &7956196074458430725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5281375099494556916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b921cf9f27c19d44eadfc2ab34337ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToToggle: 1.25
+  currentTime: 0
 --- !u!1 &5281375099724146776
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +173,7 @@ GameObject:
   - component: {fileID: 5281375099724146778}
   - component: {fileID: 5281375099724146779}
   - component: {fileID: 5281375099724146788}
+  - component: {fileID: 268388895920113775}
   m_Layer: 0
   m_Name: laser_enemy
   m_TagString: Untagged
@@ -280,3 +282,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.002
+--- !u!60 &268388895920113775
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5281375099724146776}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.34375, y: 1.03125}
+    newSize: {x: 1.34375, y: 1.03125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.4209889, y: 0.20098567}
+      - {x: -0.4572293, y: 0.13473214}
+      - {x: -0.48568016, y: -0.2617805}
+      - {x: -0.39371553, y: -0.32930264}
+      - {x: -0.19114809, y: -0.32903984}
+      - {x: -0.18605995, y: -0.448416}
+      - {x: -0.12200121, y: -0.50629455}
+      - {x: 0.0783825, y: -0.4997457}
+      - {x: 0.13459764, y: -0.4112363}
+      - {x: 0.12936215, y: -0.33078137}
+      - {x: 0.1800838, y: -0.33038902}
+      - {x: 0.18085276, y: -0.44960642}
+      - {x: 0.26143333, y: -0.5172932}
+      - {x: 0.44068137, y: -0.49840194}
+      - {x: 0.5024349, y: -0.41555274}
+      - {x: 0.5264449, y: -0.33855668}
+      - {x: 0.60295016, y: -0.32800955}
+      - {x: 0.6528752, y: -0.26526898}
+      - {x: 0.66129863, y: -0.09698326}
+      - {x: 0.6756178, y: 0.108572915}
+      - {x: 0.59398, y: 0.19898774}
+      - {x: 0.52551854, y: 0.19560586}
+      - {x: 0.46934572, y: 0.41557977}
+      - {x: 0.38243714, y: 0.5184659}
+      - {x: 0.26037776, y: 0.4710049}
+      - {x: 0.19383113, y: 0.35274726}
+      - {x: 0.18371356, y: 0.20999335}
+      - {x: 0.14379069, y: 0.20143694}
+      - {x: 0.101913884, y: 0.4385065}
+      - {x: -0.00034387782, y: 0.501692}
+      - {x: -0.11287421, y: 0.46136492}
+      - {x: -0.18658116, y: 0.3581206}
+      - {x: -0.1937257, y: 0.29677102}
+      - {x: -0.20405512, y: 0.20838073}
