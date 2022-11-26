@@ -18,7 +18,7 @@ public class LaserBeam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (z.sprite.name == "beam_12")
+        if (z.sprite.name == "beam_13")
         {
             collider.enabled = !collider.enabled;
         }
