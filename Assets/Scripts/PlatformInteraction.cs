@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class ObjectSpawner : MonoBehaviour
+public class PlatformInteraction : MonoBehaviour
 {
     public GameObject platform;
     public float respawnTime = 1.0f;
