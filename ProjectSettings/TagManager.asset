@@ -8,6 +8,9 @@ TagManager:
   - shield
   - coin
   - Coin
+  - enemy
+  - start boost
+  - platform
   layers:
   - Default
   - TransparentFX
