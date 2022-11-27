@@ -20129,6 +20129,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547664443}
   m_CullTransparentMesh: 1
+--- !u!1 &1574989493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1574989496}
+  - component: {fileID: 1574989495}
+  - component: {fileID: 1574989494}
+  m_Layer: 0
+  m_Name: GenerationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1574989494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574989493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ec3cb6c6d6d6840b875693956ab88f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinPrefab: {fileID: 5475819876865439778, guid: a1aebcbc9aab54547829f21bb48613c1, type: 3}
+  coinCount: 0
+  enemyPrefab1: {fileID: 8228722967025821245, guid: 665fbec8b67c9c0448b7087ad2b0ccff, type: 3}
+  enemyPrefab2: {fileID: 5281375099724146776, guid: 9197ccf40c74d9646b60aa5b66617b1e, type: 3}
+  enemyCount: 0
+--- !u!114 &1574989495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574989493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c132a5d01139c6449acbf98606f8d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformPrefab1: {fileID: 6616026314675401011, guid: fa1bad8fd3391744abcd5773ac1843a4, type: 3}
+  platformPrefab2: {fileID: 7359917401146855666, guid: 45e7919e4f252d24a85b4f93f8248cd9, type: 3}
+  platformPrefab3: {fileID: 6903387098402988812, guid: b52a14795d3c99a40baaa3a29e869bb3, type: 3}
+  platformCount: 0
+--- !u!4 &1574989496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574989493}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.07, y: -0.12, z: 0.69389534}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1582803330
 GameObject:
   m_ObjectHideFlags: 0
@@ -21060,6 +21126,7 @@ MonoBehaviour:
   Ball: {fileID: 1722282354}
   PlaceholderBall: {fileID: 1451384471}
   StartBoost: {fileID: 510441141}
+  GenerationManager: {fileID: 1574989493}
 --- !u!1 &1906856572
 GameObject:
   m_ObjectHideFlags: 0
