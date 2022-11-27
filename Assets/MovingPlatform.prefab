@@ -11,13 +11,12 @@ GameObject:
   - component: {fileID: 743554276507347662}
   - component: {fileID: 8899843303970934635}
   - component: {fileID: 7390430351660037177}
-  - component: {fileID: 5213295536019090972}
   - component: {fileID: 6040449148792233408}
   - component: {fileID: 5155717609746129914}
   - component: {fileID: 6906487618200137603}
   m_Layer: 0
   m_Name: MovingPlatform
-  m_TagString: Untagged
+  m_TagString: platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6903387098402988812}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.054093, y: -5.6813083, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -115,18 +114,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5213295536019090972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6903387098402988812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83cbaaefbf7fba54b93b93627af64776, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6040449148792233408
 MonoBehaviour:
   m_ObjectHideFlags: 0
