@@ -4,8 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - enemy
-  - start boost
+  - Platform&shields
+  - shield
+  - coin
+  - Coin
   layers:
   - Default
   - TransparentFX
