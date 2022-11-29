@@ -1350,7 +1350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7956196074458430725, guid: 9197ccf40c74d9646b60aa5b66617b1e, type: 3}
       propertyPath: timeToToggle
-      value: 0.9
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9197ccf40c74d9646b60aa5b66617b1e, type: 3}

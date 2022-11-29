@@ -7,12 +7,12 @@ public class PlatformDisapearing : MonoBehaviour
 
     public float timeToToggle = 1.25f;
     public float currentTime = 0;
-    public bool enabled = true;
+    public bool pEnabled = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        enabled = true; 
+        pEnabled = true; 
     }
 
     // Update is called once per frame
@@ -33,12 +33,12 @@ public class PlatformDisapearing : MonoBehaviour
 
     void TogglePlatform()
     {
-        enabled = !enabled;
+        pEnabled = !pEnabled;
         foreach(Transform child in gameObject.transform)
         {
             if(child.name == "Middle")
             {
-                child.gameObject.SetActive(enabled);
+                child.gameObject.SetActive(pEnabled);
             }
         }
     }
