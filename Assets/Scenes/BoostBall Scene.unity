@@ -6513,7 +6513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb79e993782322d4b84cf06e5217088b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 15
+  jumpForce: 20
 --- !u!1 &522861308
 GameObject:
   m_ObjectHideFlags: 0
@@ -20179,7 +20179,7 @@ MonoBehaviour:
   platformPrefab1: {fileID: 6616026314675401011, guid: fa1bad8fd3391744abcd5773ac1843a4, type: 3}
   platformPrefab2: {fileID: 7359917401146855666, guid: 45e7919e4f252d24a85b4f93f8248cd9, type: 3}
   platformPrefab3: {fileID: 6903387098402988812, guid: b52a14795d3c99a40baaa3a29e869bb3, type: 3}
-  platformCount: 0
+  currentTime: 0
 --- !u!4 &1574989496
 Transform:
   m_ObjectHideFlags: 0

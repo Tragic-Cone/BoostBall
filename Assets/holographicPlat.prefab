@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 7359917401146855656}
   m_Layer: 0
   m_Name: holographicPlat
-  m_TagString: Untagged
+  m_TagString: platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToToggle: 1.25
   currentTime: 0
-  enabled: 1
+  pEnabled: 1
 --- !u!114 &7359917401146855663
 MonoBehaviour:
   m_ObjectHideFlags: 0
