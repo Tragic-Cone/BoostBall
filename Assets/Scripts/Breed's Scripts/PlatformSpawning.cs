@@ -8,14 +8,18 @@ public class PlatformSpawning : MonoBehaviour
     public GameObject platformPrefab2;
     public GameObject platformPrefab3;
 
-    private float timeToSpawn = 10f;
+    private float timeToSpawn = 1f;
     public float currentTime = 0;
+
+    private GameObject MainCamera;
 
     void Start()
     {
+        MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+
         Vector3 spawnPosition = new Vector3();
         float xPosition = Random.Range(-5f, 5f);
-        float yPosition = 10f;
+        float yPosition = 10f + MainCamera.GetComponent<Transform>().position.y;
 
         spawnPosition.y += yPosition;
         spawnPosition.x = xPosition;
@@ -29,7 +33,7 @@ public class PlatformSpawning : MonoBehaviour
 
         Vector3 spawnPosition = new Vector3();
         float xPosition = Random.Range(-5f, 5f);
-        float yPosition = 10f;
+        float yPosition = 10f + MainCamera.GetComponent<Transform>().position.y;
 
         currentTime += Time.deltaTime;
 

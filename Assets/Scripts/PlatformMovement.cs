@@ -10,7 +10,7 @@ public class PlatformMovement : MonoBehaviour
     //Your Update function
     void Update()
     {
-        transform.position = new Vector3(Mathf.PingPong(Time.time, 10), transform.position.y, transform.position.z);
+        transform.position = new Vector3(Mathf.PingPong(Time.time, 5), transform.position.y, transform.position.z);
     }
     
 }

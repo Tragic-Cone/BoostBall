@@ -9,6 +9,7 @@ public class StartGame : MonoBehaviour
     [SerializeField] GameObject PlaceholderBall;
     [SerializeField] GameObject StartBoost;
     [SerializeField] GameObject GenerationManager;
+    [SerializeField] GameObject Glitch;
     public void clickedStart()
     {
         UIObject.SetActive(false);
@@ -16,5 +17,6 @@ public class StartGame : MonoBehaviour
         PlaceholderBall.SetActive(false);
         StartBoost.SetActive(true);
         GenerationManager.SetActive(true);
+        Glitch.SetActive(true);
     }
 }

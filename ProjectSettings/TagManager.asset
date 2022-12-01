@@ -6,6 +6,8 @@ TagManager:
   tags:
   - enemy
   - start boost
+  - platform
+  - void
   layers:
   - Default
   - TransparentFX
