@@ -8,7 +8,7 @@ public class PlatformSpawning : MonoBehaviour
     public GameObject platformPrefab2;
     public GameObject platformPrefab3;
 
-    private float timeToSpawn = 10f;
+    private float timeToSpawn = 3f;
     public float currentTime = 0;
 
     void Start()
