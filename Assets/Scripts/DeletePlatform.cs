@@ -12,7 +12,7 @@ public class DeletePlatform : MonoBehaviour
     // Update is called once per frame
      void Update()
      {
-         if (transform.position.y <= -50f)
+         if (transform.position.y <= -10.5f)
          {
             Destroy(this.gameObject);
          }
