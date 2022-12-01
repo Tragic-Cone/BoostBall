@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class PlatformSpawner : MonoBehaviour
 {
     public GameObject platform;
-    public float respawnTime = 1.0f;
+    public float respawnTime = 5.0f;
     private Vector2 screenBounds;
     private int distance = 1;
     // Use this for initialization
@@ -14,7 +14,10 @@ public class PlatformSpawner : MonoBehaviour
         StartCoroutine(platformWave());
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
     }
-
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
     private void spawnPlatform()
     {
         

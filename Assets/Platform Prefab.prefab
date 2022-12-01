@@ -97,10 +97,9 @@ GameObject:
   - component: {fileID: 4095591027821839387}
   - component: {fileID: 4095591027821839386}
   - component: {fileID: 4095591027821839384}
-  - component: {fileID: 4095591027821839385}
   m_Layer: 0
   m_Name: Platform Prefab
-  m_TagString: Untagged
+  m_TagString: platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -211,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb79e993782322d4b84cf06e5217088b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 15
+  jumpForce: 20
 --- !u!114 &4095591027821839384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,16 +223,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe8e90ea230e5e240812edac426f55dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.002
---- !u!114 &4095591027821839385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6616026314675401011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83cbaaefbf7fba54b93b93627af64776, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  speed: 0.01
