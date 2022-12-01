@@ -7,6 +7,9 @@ public class PlatformSpawning : MonoBehaviour
     public GameObject platformPrefab1;
     public GameObject platformPrefab2;
     public GameObject platformPrefab3;
+    public GameObject platformPrefab4;
+    public GameObject platformPrefab5;
+    public GameObject platformPrefab6;
 
     private float timeToSpawn = 1f;
     public float currentTime = 0;
