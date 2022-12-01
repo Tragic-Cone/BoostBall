@@ -76,19 +76,19 @@ public class DatabaseManager : MonoBehaviour
         string query2 = $"SELECT * FROM dbo.Player WHERE username='{username}' and password='{password}'";
         using(System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connectionString)){
             List<string> list = new List<string>();
-            System.Data.SqlClient.SqlCommand command2 = new System.Data.SqlClient.SqlCommand(query2, conn);
-            conn.Open();
-            // command1.ExecuteNonQuery();
-            using(System.Data.SqlClient.SqlDataReader reader = command2.ExecuteReader()){
-                bool wasRead = false;
-                while(reader.Read()){
-                    wasRead = true;
-                    int ID = reader.GetInt32(reader.GetOrdinal("ID"));
-                    createJSON(ID, conn);
-                    break;
-                }
-                if(!wasRead){
-                    txtErrorMessage.text = "Invalid username or password";
+            using(System.Data.SqlClient.SqlCommand command2 = new System.Data.SqlClient.SqlCommand(query2, conn)){
+                conn.Open();
+                using(System.Data.SqlClient.SqlDataReader reader = command2.ExecuteReader()){
+                    bool wasRead = false;
+                    while(reader.Read()){
+                        wasRead = true;
+                        int ID = reader.GetInt32(reader.GetOrdinal("ID"));
+                        createJSON(ID, conn);
+                        break;
+                    }
+                    if(!wasRead){
+                        txtErrorMessage.text = "Invalid username or password";
+                    }
                 }
             }
         }
@@ -137,11 +137,13 @@ public class DatabaseManager : MonoBehaviour
                 break;
             }
         }
-        Player player = new Player(ID, username, password, lifetimeCoins, currentCoins, highScore, ownedSkins, currentBall);
-        string jsonPlayer = JsonConvert.SerializeObject(player);
-        using(StreamWriter fileWriter = File.AppendText("jsonPlayer.json")){
-            fileWriter.Write(jsonPlayer);
-        }
-        //Player player = JsonConvert.DeserializeObject<Player>(jsonPlayer);
+        Player.ID = ID;
+        Player.username = username;
+        Player.password = password;
+        Player.lifetimeCoins = lifetimeCoins;
+        Player.currentCoins = currentCoins;
+        Player.highScore = highScore;
+        Player.ownedSkins = ownedSkins;
+        Player.currentBall = currentBall;
     }
 }
