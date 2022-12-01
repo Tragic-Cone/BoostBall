@@ -35,13 +35,23 @@ public class PlatformSpawning : MonoBehaviour
         GameObject[] GameobjectList = GameObject.FindGameObjectsWithTag("platform");
 
         Vector3 spawnPosition = new Vector3();
-        float xPosition = Random.Range(-5f, 5f);
-        float yPosition = 10f + MainCamera.GetComponent<Transform>().position.y;
+
 
         currentTime += Time.deltaTime;
 
         if (GameobjectList.Length < 3 && currentTime >= timeToSpawn)
         {
+
+            float maxY = GameobjectList[0].GetComponent<Transform>().position.y;
+            for(int i = 0; i < GameobjectList.Length; i++)
+            {
+                if(GameobjectList[i].GetComponent<Transform>().position.y > maxY)
+                {
+                    maxY = GameobjectList[i].GetComponent<Transform>().position.y;
+                }
+            }
+            float xPosition = Random.Range(-5f, 5f);
+            float yPosition = 10f + maxY;
             currentTime = 0;
 
             int pnum = Random.Range(1, 4);
