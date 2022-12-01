@@ -18,7 +18,7 @@ public class ObjectCollector : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(bounceSound, transform.position);
         }
-        if (other.transform.tag == "Coin")
+        if (other.transform.tag == "coin")
         {
             coin++;
             textcoins.text = "X" + coin;

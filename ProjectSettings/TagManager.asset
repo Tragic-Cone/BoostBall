@@ -8,6 +8,8 @@ TagManager:
   - start boost
   - platform
   - void
+  - shield
+  - coin
   layers:
   - Default
   - TransparentFX
