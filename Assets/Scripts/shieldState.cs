@@ -9,7 +9,7 @@ public class shieldState : MonoBehaviour
     //References placed in editor
     [SerializeField] Sprite[] spriteArray;
     //SerializeFielded for debug purposes
-    [SerializeField] int numShields;
+    [SerializeField] public int numShields;
 
     //Pulse Renderer
     [SerializeField] SpriteRenderer shieldPulse;

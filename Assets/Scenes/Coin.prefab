@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 64276895321568263}
   - component: {fileID: 5692588881695613956}
   - component: {fileID: 4086356232463852147}
+  - component: {fileID: 1150413664891369549}
   m_Layer: 0
   m_Name: Coin
   m_TagString: coin
@@ -4948,7 +4949,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 19eee008be60ad94aa33a0d3c86ddc52, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -5033,6 +5034,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1150413664891369549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466753071409626461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83cbaaefbf7fba54b93b93627af64776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &466753073333730319
 GameObject:
   m_ObjectHideFlags: 0

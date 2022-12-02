@@ -16,7 +16,7 @@ public class PlatformSpawner : MonoBehaviour
     }
     void OnBecameInvisible()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
     private void spawnPlatform()
     {
