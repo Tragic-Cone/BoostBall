@@ -556,7 +556,7 @@ Transform:
   - {fileID: 1439379666}
   - {fileID: 1489623777}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &165400177
 MonoBehaviour:
@@ -14943,7 +14943,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.032334328, y: -9.959085}
+  m_Offset: {x: 0.08668518, y: -9.959085}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -14954,7 +14954,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 11.799789, y: 0.482646}
+  m_Size: {x: 31.668625, y: 0.48264694}
   m_EdgeRadius: 0
 --- !u!50 &1489623779
 Rigidbody2D:
@@ -16622,6 +16622,8 @@ MonoBehaviour:
   city2: {fileID: 2081192286}
   city1: {fileID: 536139931}
   constant: {fileID: 1738573939}
+  transform: {fileID: 1906856574}
+  camera: {fileID: 165400173}
   distance: 0
 --- !u!4 &1906856574
 Transform:
@@ -16630,7 +16632,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1906856572}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -16640,7 +16642,7 @@ Transform:
   - {fileID: 2081192288}
   - {fileID: 574409794}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1930995264
 GameObject:
@@ -22742,6 +22744,10 @@ PrefabInstance:
     - target: {fileID: 1423230749321073750, guid: 0521f5d8dcb144449b7975eff84d8bd8, type: 3}
       propertyPath: m_Name
       value: Ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423230749321073756, guid: 0521f5d8dcb144449b7975eff84d8bd8, type: 3}
+      propertyPath: m_Mass
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1423230749321073756, guid: 0521f5d8dcb144449b7975eff84d8bd8, type: 3}
       propertyPath: m_GravityScale
