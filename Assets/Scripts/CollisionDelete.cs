@@ -35,7 +35,7 @@ public class CollisionDelete : MonoBehaviour
             }
             else
             {
-                Destroy(this.gameObject);
+                this.gameObject.active = false;
                 AudioSource.PlayClipAtPoint(deadSound, transform.position);
             }
             
@@ -44,7 +44,7 @@ public class CollisionDelete : MonoBehaviour
         }
         else if(collision.gameObject.tag == "void")
         {
-            Destroy(this.gameObject);
+            this.gameObject.active = false;
             AudioSource.PlayClipAtPoint(deadSound, transform.position);
         }
         if (collision.gameObject.tag == "start boost")

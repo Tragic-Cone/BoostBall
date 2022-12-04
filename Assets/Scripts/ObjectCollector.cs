@@ -25,7 +25,7 @@ public class ObjectCollector : MonoBehaviour
         if (other.transform.tag == "coin")
         {
             coin++;
-            textcoins.text = "X" + coin;
+            textcoins.text = "" + coin;
             AudioSource.PlayClipAtPoint(coinSound, transform.position);
             Destroy(other.gameObject);
             //textcoins.text = string(coin);
@@ -63,5 +63,10 @@ public class ObjectCollector : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(bounceSound, transform.position);
         }
+    }
+
+    public int getCoins()
+    {
+        return coin;
     }
 }

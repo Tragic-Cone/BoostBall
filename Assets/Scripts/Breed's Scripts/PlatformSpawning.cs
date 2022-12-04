@@ -43,7 +43,7 @@ public class PlatformSpawning : MonoBehaviour
 
         currentTime += Time.deltaTime;
 
-        if (platformList.Length < 3)
+        if (platformList.Length < 10)
         {
 
             float maxY = 0;
@@ -55,7 +55,7 @@ public class PlatformSpawning : MonoBehaviour
                 }
             }
             float xPosition = Random.Range(-5f, 5f);
-            float yPosition = 10f + maxY;
+            float yPosition = 3f + maxY;
 
             int pnum = Random.Range(1, 4);
             if (pnum == 1)
@@ -113,7 +113,16 @@ public class PlatformSpawning : MonoBehaviour
             Instantiate(shieldPrefab, spawnPosition, Quaternion.identity);
         }
 
-        if (enemyList.Length < 1)
+        int numEnemies = 3;
+        if(platformList[platformList.Length-1].GetComponent<Transform>().position.y > 500)
+        {
+            numEnemies = 4;
+        }
+        else if(platformList[platformList.Length - 1].GetComponent<Transform>().position.y > 1000)
+        {
+            numEnemies = 5;
+        }
+        if (enemyList.Length < numEnemies)
         {
             float maxY = 0;
             for (int i = 0; i < enemyList.Length; i++)
@@ -127,15 +136,15 @@ public class PlatformSpawning : MonoBehaviour
             float yPosition = 10f + maxY;
             spawnPosition.y += yPosition;
             spawnPosition.x = xPosition;
-            if(Random.Range(0,5) == 0)
-            {
-                xPosition = Random.Range(3f, 5f);
-                Instantiate(laserPrefab, spawnPosition, Quaternion.identity);
-            }
-            else
-            {
+            //if(Random.Range(0,5) == 0)
+            //{
+            //    xPosition = Random.Range(3f, 5f);
+            //    Instantiate(laserPrefab, spawnPosition, Quaternion.identity);
+            //}
+            //else
+            //{
                 Instantiate(trianglePrefab, spawnPosition, Quaternion.identity);
-            }
+            //}
             
         }
     }
