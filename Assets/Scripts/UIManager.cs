@@ -11,18 +11,12 @@ public class UIManager : MonoBehaviour
     public GameObject customizationPanel;
     public GameObject accountPanel;
     public GameObject gameOverlay;
+    public GameObject registerLoginPanel;
+    public GameObject accountDetailsPanel;
 
     //Customization panel variables
     public int selectedBall = 1;
-    public enum ballSelection{
-        DefaultBall,
-        GreenBall,
-        RedBall,
-        YellowBall,
-        PinkBall,
-        BowlingBall,
-        BeachBall
-    }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +25,7 @@ public class UIManager : MonoBehaviour
         customizationPanel.SetActive(false);
         accountPanel.SetActive(false);
         gameOverlay.SetActive(false);
+        registerLoginPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -46,6 +41,7 @@ public class UIManager : MonoBehaviour
         customizationPanel.SetActive(false);
         accountPanel.SetActive(false);
         gameOverlay.SetActive(false);
+        registerLoginPanel.SetActive(false);
     }
 
     public void showLeaderboardPanel()
@@ -55,6 +51,7 @@ public class UIManager : MonoBehaviour
         customizationPanel.SetActive(false);
         accountPanel.SetActive(false);
         gameOverlay.SetActive(false);
+        registerLoginPanel.SetActive(false);
     }
 
     public void showCustomizationPanel()
@@ -64,6 +61,7 @@ public class UIManager : MonoBehaviour
         customizationPanel.SetActive(true);
         accountPanel.SetActive(false);
         gameOverlay.SetActive(false);
+        registerLoginPanel.SetActive(false);
     }
 
     public void showAccountPanel()
@@ -71,8 +69,17 @@ public class UIManager : MonoBehaviour
         mainMenuPanel.SetActive(false);
         leaderboardPanel.SetActive(false);
         customizationPanel.SetActive(false);
-        accountPanel.SetActive(true);
         gameOverlay.SetActive(false);
+
+
+        if(Player.ID == -1){
+            registerLoginPanel.SetActive(true);
+            accountPanel.SetActive(false);
+
+        } else {
+            registerLoginPanel.SetActive(false);
+            accountPanel.SetActive(true);
+        }
     }
 
     public void showGameplayPanel()
@@ -82,6 +89,7 @@ public class UIManager : MonoBehaviour
         customizationPanel.SetActive(false);
         accountPanel.SetActive(true);
         gameOverlay.SetActive(false);
+        registerLoginPanel.SetActive(false);
     }
 
     public void loadGameplayScene()
@@ -91,29 +99,36 @@ public class UIManager : MonoBehaviour
         customizationPanel.SetActive(false);
         accountPanel.SetActive(false);
         gameOverlay.SetActive(true);
+        registerLoginPanel.SetActive(false);
     }
 
     public void buyBeachBall(){
-        //something
+        DatabaseInstance.buyBeachBall();
+        //equip and bring to Main Menu
     }
 
     public void buyBowlingBall(){
+        DatabaseInstance.buyBowlingBall();
         //something
     }
 
     public void buyGreenBall(){
+        DatabaseInstance.buyBowlingBall();
         //something
     }
 
     public void buyPinkBall(){
+        DatabaseInstance.buyPinkBall();
         //something
     }
 
     public void buyRedBall(){
+        DatabaseInstance.buyRedBall();
         //something
     }
 
     public void buyYellowBall(){
+        DatabaseInstance.buyYellowBall();
         //something
     }
 

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 public static class Player
 {
-    public static int ID;
+    public static int ID = -1;
     public static string username;
     public static string password;
     public static int lifetimeCoins;
