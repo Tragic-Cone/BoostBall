@@ -107,7 +107,7 @@ public class PlatformSpawning : MonoBehaviour
                 }
             }
             float xPosition = Random.Range(-5f, 5f);
-            float yPosition = 10f + maxY;
+            float yPosition = 20f + maxY;
             spawnPosition.y += yPosition;
             spawnPosition.x = xPosition;
             Instantiate(shieldPrefab, spawnPosition, Quaternion.identity);
