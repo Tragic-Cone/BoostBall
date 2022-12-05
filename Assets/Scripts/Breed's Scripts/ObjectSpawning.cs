@@ -25,6 +25,7 @@ public class ObjectSpawning: MonoBehaviour
                 pSpawnPosition.y += yPosition;
                 pSpawnPosition.x = xPosition;
                 Instantiate(coinPrefab, pSpawnPosition, Quaternion.identity);
+                coinCount += 1;
             }
         }
         else if (chance == 1 || chance == 5 || chance == 9)
@@ -48,6 +49,7 @@ public class ObjectSpawning: MonoBehaviour
                     eSpawnPosition.x += xPosition;
                     Instantiate(enemyPrefab2, eSpawnPosition, Quaternion.identity);
                 }
+
             }
         }
         
