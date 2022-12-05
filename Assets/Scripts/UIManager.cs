@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -13,6 +14,12 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverlay;
     public GameObject registerLoginPanel;
     public GameObject accountDetailsPanel;
+    public GameObject playerBall;
+    public GameObject txtRegisterUsername;
+    public GameObject txtRegisterPassword;
+    public TMP_Text txtErrorMessage;
+    private string password;
+    private string username;
 
     //Customization panel variables
     public int selectedBall = 1;
@@ -28,20 +35,54 @@ public class UIManager : MonoBehaviour
         registerLoginPanel.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void showMainMenuPanel()
     {
+        //code that sets the ball skin under this
+        if(Player.ID != 1){
+            changeBallSkin(Player.currentSkin);
+        } else {
+            changeBallSkin(0);
+        }
         mainMenuPanel.SetActive(true);
         leaderboardPanel.SetActive(false);
         customizationPanel.SetActive(false);
         accountPanel.SetActive(false);
         gameOverlay.SetActive(false);
         registerLoginPanel.SetActive(false);
+    }
+    public void changeBallSkin(int ballID){
+
+    }
+
+    public void setPassword(string s){
+        password = s;
+    }
+
+    public void setUsername(string s){
+        username = s;
+    }
+
+    public void RegisterUser(){
+        bool error = DatabaseInstance.RegisterUser(username, password);
+        txtErrorMessage.text = string.Empty;
+        if(!error){
+            txtErrorMessage.text = "Username already taken.";
+        }
+        showMainMenuPanel();
+    }
+
+    public void Login(){
+        txtErrorMessage.text = string.Empty;
+        if(!DatabaseInstance.Login(username, password)){
+        txtErrorMessage.text = "Invalid username or password";
+        } else {
+            showMainMenuPanel();
+        }
+    }
+
+    public void Logout(){
+        DatabaseInstance.Logout();
+        showMainMenuPanel();
     }
 
     public void showLeaderboardPanel()
@@ -56,12 +97,17 @@ public class UIManager : MonoBehaviour
 
     public void showCustomizationPanel()
     {
-        mainMenuPanel.SetActive(false);
-        leaderboardPanel.SetActive(false);
-        customizationPanel.SetActive(true);
-        accountPanel.SetActive(false);
-        gameOverlay.SetActive(false);
-        registerLoginPanel.SetActive(false);
+        if(Player.ID == -1){
+            showAccountPanel();
+        } else {
+            mainMenuPanel.SetActive(false);
+            leaderboardPanel.SetActive(false);
+            customizationPanel.SetActive(true);
+            accountPanel.SetActive(false);
+            gameOverlay.SetActive(false);
+            registerLoginPanel.SetActive(false);
+        }
+        
     }
 
     public void showAccountPanel()
@@ -104,32 +150,32 @@ public class UIManager : MonoBehaviour
 
     public void buyBeachBall(){
         DatabaseInstance.buyBeachBall();
-        //equip and bring to Main Menu
+        showMainMenuPanel();
     }
 
     public void buyBowlingBall(){
         DatabaseInstance.buyBowlingBall();
-        //something
+        showMainMenuPanel();
     }
 
     public void buyGreenBall(){
         DatabaseInstance.buyBowlingBall();
-        //something
+        showMainMenuPanel();
     }
 
     public void buyPinkBall(){
         DatabaseInstance.buyPinkBall();
-        //something
+        showMainMenuPanel();
     }
 
     public void buyRedBall(){
         DatabaseInstance.buyRedBall();
-        //something
+        showMainMenuPanel();
     }
 
     public void buyYellowBall(){
         DatabaseInstance.buyYellowBall();
-        //something
+        showMainMenuPanel();
     }
 
     public void pressSelectButton(){
@@ -138,5 +184,13 @@ public class UIManager : MonoBehaviour
         showMainMenuPanel();
     }
 
+    public void checkCoinsAndHS(){
+        int coins = 0;
+        int score = 0;
+        DatabaseInstance.addCoins(coins);
+        if(score > Player.highScore){
+            DatabaseInstance.setHighScore(score);
+        }
+    }
 
 }

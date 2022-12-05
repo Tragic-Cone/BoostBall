@@ -1,24 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 
 public static class DatabaseInstance
 {
     private static string connectionString = @"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true;AttachDbFileName=C:\Users\Legen\Documents\Github\BoostBall\Assets\Scripts\BoostBall.mdf;";
     public enum ballSelection{
-        DefaultBall,
-        BeachBall,
-        BowlingBall,
-        GreenBall,
-        PinkBall,
-        RedBall,
-        YellowBall
+        DefaultBall = 0,
+        BeachBall = 1,
+        BowlingBall = 2,
+        GreenBall = 3,
+        PinkBall = 4,
+        RedBall = 5,
+        YellowBall = 6
     }
     public static bool RegisterUser(string username, string password){
         string query = $"INSERT INTO dbo.Player (username, password, lifetime_coins, current_coins, high_score) VALUES ('{username}', '{password}', {0}, {0}, {0})";
         string query2 = $"SELECT * FROM dbo.Player WHERE username='{username}'";
+        bool wasRead = false;
 
         using(System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connectionString)){
-            bool wasRead = false;
             List<string> list = new List<string>();
             System.Data.SqlClient.SqlCommand command1 = new System.Data.SqlClient.SqlCommand(query, conn);
             System.Data.SqlClient.SqlCommand command2 = new System.Data.SqlClient.SqlCommand(query2, conn);
@@ -26,7 +27,6 @@ public static class DatabaseInstance
             using(System.Data.SqlClient.SqlDataReader reader = command2.ExecuteReader()){
                 while(reader.Read()){
                     wasRead = true;
-                    return false;
                     break;
                 }
             }
@@ -52,9 +52,9 @@ public static class DatabaseInstance
                 command1 = new SqlCommand(query, conn);
                 command1.ExecuteNonQuery();
                 createJSON(ID, conn);
-                return true;
             }
         }
+        return !wasRead;
     }
 
     public static bool Login(string username, string password){
@@ -82,13 +82,10 @@ public static class DatabaseInstance
     }
 
     private static void createJSON(int ID, System.Data.SqlClient.SqlConnection conn){
-        if(File.Exists("jsonPlayer.json")){
-            File.Delete("jsonPlayer.json");
-        }
         int currentCoins = 0;
         int lifetimeCoins = 0;
-        string username = String.Empty;
-        string password = String.Empty;
+        string username = string.Empty;
+        string password = string.Empty;
         int highScore = 0;
         int currentBall = 0;
         Dictionary<int, int> ownedSkins = new Dictionary<int, int>();
@@ -135,6 +132,8 @@ public static class DatabaseInstance
     }
 
     public static void addCoins(int coins){
+        int currentCoins = 0;
+        int lifetimeCoins = 0;
         string query = $"SELECT * FROM dbo.Player WHERE ID={Player.ID}";
         using(SqlConnection conn = new SqlConnection(connectionString)){
             conn.Open();
@@ -181,35 +180,35 @@ public static class DatabaseInstance
         return cost;
     }
     public static void buyBeachBall(){
-        cost = getBallCost(ballSelection.BeachBall);
-        buyBall(cost, ballSelection.BeachBall);
-        equipSkin(ballSelection.BeachBall);
+        int cost = getBallCost((int)ballSelection.BeachBall);
+        buyBall(cost, (int)ballSelection.BeachBall);
+        equipSkin((int)ballSelection.BeachBall);
     }
 
     public static void buyBowlingBall(){
-        cost = getBallCost(ballSelection.BowlingBall);
-        buyBall(cost, ballSelection.BowlingBall);
-        equipSkin(ballSelection.BowlingBall);
+        int cost = getBallCost((int)ballSelection.BowlingBall);
+        buyBall(cost, (int)ballSelection.BowlingBall);
+        equipSkin((int)ballSelection.BowlingBall);
     }
     public static void buyGreenBall(){
-        cost = getBallCost(ballSelection.GreenBall);
-        buyBall(cost, ballSelection.GreenBall);
-        equipskin(ballSelection.GreenBall);
+        int cost = getBallCost((int)ballSelection.GreenBall);
+        buyBall(cost, (int)ballSelection.GreenBall);
+        equipSkin((int)ballSelection.GreenBall);
     }
     public static void buyPinkBall(){
-        cost = getBallCost(ballSelection.PinkBall);
-        buyBall(cost, ballSelection.PinkBall);
-        equipSkin(ballSelection.PinkBall);
+        int cost = getBallCost((int)ballSelection.PinkBall);
+        buyBall(cost, (int)ballSelection.PinkBall);
+        equipSkin((int)ballSelection.PinkBall);
     }
     public static void buyRedBall(){
-        cost = getBallCost(ballSelection.RedBall);
-        buyBall(cost, ballSelection.RedBall);
-        equipSkin(ballSelection.RedBall);
+        int cost = getBallCost((int)ballSelection.RedBall);
+        buyBall(cost, (int)ballSelection.RedBall);
+        equipSkin((int)ballSelection.RedBall);
     }
     public static void buyYellowBall(){
-        cost = getBallCost(ballSelection.YellowBall);
-        buyBall(cost, ballSelection.YellowBall);
-        equipSkin(ballSelection.YellowBall);
+        int cost = getBallCost((int)ballSelection.YellowBall);
+        buyBall(cost, (int)ballSelection.YellowBall);
+        equipSkin((int)ballSelection.YellowBall);
     }
     public static List<PlayerScore> getTopTenScores(){
         List<PlayerScore> scores = new List<PlayerScore>();
@@ -220,7 +219,7 @@ public static class DatabaseInstance
                     int i = 0;
                     while(reader.Read() && i < 10){
                         string username = reader.GetString(reader.GetOrdinal("username"));
-                        int highScore = reader.GetString(reader.GetOrdinal("high_score"));
+                        int highScore = reader.GetInt32(reader.GetOrdinal("high_score"));
                         scores.Add(new PlayerScore(username, highScore));
                         i++;
                     }
@@ -239,7 +238,7 @@ public static class DatabaseInstance
         Player.currentSkin = ballID;
     }
     public static void setHighScore(int highScore){
-        string query = $"UPDATE dbo.Player SET high_score={highScore}";
+        string query = $"UPDATE dbo.Player SET high_score={highScore} WHERE ID={Player.ID}";
         using(SqlConnection conn = new SqlConnection(connectionString)){
             using(SqlCommand command = new SqlCommand(query, conn)){
                 command.ExecuteNonQuery();
