@@ -168,6 +168,7 @@ public static class DatabaseInstance
         string query = $"SELECT ball_cost FROM dbo.Balls WHERE ballID={ballID}";
         int cost = 0;
         using(SqlConnection conn = new SqlConnection(connectionString)){
+            conn.Open();
             using(SqlCommand command = new SqlCommand(query, conn)){
                 using(SqlDataReader reader = command.ExecuteReader()){
                     while(reader.Read()){
