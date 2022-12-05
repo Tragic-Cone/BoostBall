@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8228722967025821237}
   - component: {fileID: 8228722967025821233}
   - component: {fileID: 8228722967025821238}
-  - component: {fileID: 8122290702533085871}
   m_Layer: 0
   m_Name: triangle
   m_TagString: enemy
@@ -119,7 +118,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -169,16 +168,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe8e90ea230e5e240812edac426f55dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.02
---- !u!114 &8122290702533085871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8228722967025821245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83cbaaefbf7fba54b93b93627af64776, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  speed: 0.002

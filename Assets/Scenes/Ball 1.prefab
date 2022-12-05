@@ -5125,7 +5125,6 @@ GameObject:
   - component: {fileID: 1423230749321073756}
   - component: {fileID: 1423230749321073747}
   - component: {fileID: 1423230749321073746}
-  - component: {fileID: 2971475368980796516}
   - component: {fileID: 1423230749321073745}
   m_Layer: 0
   m_Name: Ball 1
@@ -5255,23 +5254,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   smoothTime: 0.3
---- !u!114 &2971475368980796516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423230749321073750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 771967ad950de654fa102eea48d7b8bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textcoins: {fileID: 0}
-  textshield: {fileID: 0}
-  coinSound: {fileID: 0}
-  shieldSound: {fileID: 0}
-  bounceSound: {fileID: 0}
 --- !u!114 &1423230749321073745
 MonoBehaviour:
   m_ObjectHideFlags: 0

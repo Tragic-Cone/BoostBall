@@ -8,10 +8,8 @@ public class BackgroundManager : MonoBehaviour
     [SerializeField] public GameObject city2;
     [SerializeField] public GameObject city1;
     [SerializeField] public GameObject constant;
-    [SerializeField] public Transform transform;
-    [SerializeField] public GameObject camera;
 
-    public float distance; 
+    public int distance; 
     // Start is called before the first frame update
     void Start()
     {
@@ -21,14 +19,12 @@ public class BackgroundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(0, camera.GetComponent<Transform>().position.y, 10);
-        distance = GetComponentInParent<Transform>().position.y;
         if (distance < 19000)
         {
-            constant.transform.localPosition = new Vector3(constant.transform.localPosition.x, -(distance / 1000f), constant.transform.localPosition.z);
+            constant.transform.position = new Vector3(constant.transform.position.x, -(distance / 1000f), constant.transform.position.z);
         }
-        city1.transform.localPosition = new Vector3(constant.transform.localPosition.x, -(distance / 100f) + 12 , constant.transform.localPosition.z);
-        city2.transform.localPosition = new Vector3(constant.transform.localPosition.x, -(distance / 85f) + 12, constant.transform.localPosition.z);
-        city3.transform.localPosition = new Vector3(constant.transform.localPosition.x, -(distance / 70f) + 12, constant.transform.localPosition.z);
+        city1.transform.position = new Vector3(constant.transform.position.x, -(distance / 450f) + 12 , constant.transform.position.z);
+        city2.transform.position = new Vector3(constant.transform.position.x, -(distance / 400f) + 12, constant.transform.position.z);
+        city3.transform.position = new Vector3(constant.transform.position.x, -(distance / 350f) + 12, constant.transform.position.z);
     }
 }
