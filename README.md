@@ -1,6 +1,6 @@
 # BoostBall
 
-Boost ball is a 2D infinitely scrolling platformer game where you play as a ball attempting to jump
+Boost Ball is a 2D infinitely scrolling platformer game where you play as a ball attempting to jump
 on an infinite number of generating platforms while avoiding hazards, collecting coins, and
 collecting shields.
 
