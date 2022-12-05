@@ -171,8 +171,8 @@ GameObject:
   - component: {fileID: 5281375099724146789}
   - component: {fileID: 5281375099724146778}
   - component: {fileID: 5281375099724146779}
-  - component: {fileID: 5281375099724146788}
   - component: {fileID: 268388895920113775}
+  - component: {fileID: 6831954825237882878}
   m_Layer: 0
   m_Name: laser_enemy
   m_TagString: Untagged
@@ -268,19 +268,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5281375099724146788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5281375099724146776}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe8e90ea230e5e240812edac426f55dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.002
 --- !u!60 &268388895920113775
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -291,7 +278,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -340,3 +327,15 @@ PolygonCollider2D:
       - {x: -0.18658116, y: 0.3581206}
       - {x: -0.1937257, y: 0.29677102}
       - {x: -0.20405512, y: 0.20838073}
+--- !u!114 &6831954825237882878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5281375099724146776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83cbaaefbf7fba54b93b93627af64776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
