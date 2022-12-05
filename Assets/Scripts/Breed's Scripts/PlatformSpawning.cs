@@ -57,20 +57,20 @@ public class PlatformSpawning : MonoBehaviour
             float xPosition = Random.Range(-5f, 5f);
             float yPosition = 3f + maxY;
 
-            int pnum = Random.Range(1, 4);
-            if (pnum == 1)
+            int pnum = Random.Range(1, 11);
+            if (pnum == 1 || pnum == 2 || pnum == 3 || pnum == 4 || pnum == 5 || pnum == 6)
             {
                 spawnPosition.y = yPosition;
                 spawnPosition.x = xPosition;
                 Instantiate(platformPrefab1, spawnPosition, Quaternion.identity);
             }
-            else if (pnum == 2)
+            else if (pnum == 7 || pnum == 8)
             {
                 spawnPosition.y = yPosition;
                 spawnPosition.x = xPosition;
                 Instantiate(platformPrefab2, spawnPosition, Quaternion.identity);
             }
-            else if (pnum == 3)
+            else if (pnum == 9 || pnum == 10)
             {
                 spawnPosition.y = yPosition;
                 spawnPosition.x = xPosition;
@@ -136,15 +136,16 @@ public class PlatformSpawning : MonoBehaviour
             float yPosition = 10f + maxY;
             spawnPosition.y += yPosition;
             spawnPosition.x = xPosition;
-            //if(Random.Range(0,5) == 0)
-            //{
-            //    xPosition = Random.Range(3f, 5f);
-            //    Instantiate(laserPrefab, spawnPosition, Quaternion.identity);
-            //}
-            //else
-            //{
+            if(Random.Range(0,5) == 0)
+            {
+                xPosition = Random.Range(3f, 5f);
+                spawnPosition.x = xPosition;
+                Instantiate(laserPrefab, spawnPosition, Quaternion.identity);
+            }
+            else
+            {
                 Instantiate(trianglePrefab, spawnPosition, Quaternion.identity);
-            //}
+            }
             
         }
     }
