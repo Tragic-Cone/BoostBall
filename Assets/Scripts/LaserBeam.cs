@@ -20,18 +20,20 @@ public class LaserBeam : MonoBehaviour
 
 
         currentTime += Time.deltaTime;
-        if (currentTime >= 1f)
+        if (currentTime >= 1.2f && currentTime <= 1.45f)
         {
-            lbCollider.enabled = !lbCollider.enabled;
-            currentTime = 0;
+            lbCollider.enabled = true;
             
-            if (currentTime >= .4f)
-            {
-                lbCollider.enabled = !lbCollider.enabled;
-                currentTime = 0;
-            }
         }
-        if(currentTime >= 1.2f)
+        else if(currentTime >= 1.45f)
+        {
+            lbCollider.enabled = false;
+        }
+        else
+        {
+            lbCollider.enabled = false;
+        }
+        if(currentTime >= 2.67f)
         {
             currentTime = 0;
         }
