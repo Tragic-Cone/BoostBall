@@ -6,7 +6,8 @@ using UnityEngine;
 
 public static class DatabaseInstance
 {
-    private static string connectionString = @$"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true;AttachDbFileName={getDataPath()};";
+    // private static string connectionString = @$"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true;AttachDbFileName={getDataPath()};";
+    private static string connectionString = "Server=tcp:boostball.database.windows.net,1433;Initial Catalog=boostball;Persist Security Info=False;User ID=brewstercm;Password=Mydogwaspinky4236!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
     public enum ballSelection{
         DefaultBall = 0,
         BeachBall = 1,
