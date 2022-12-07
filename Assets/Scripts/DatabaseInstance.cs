@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+// using System.IO.Directory;
+using UnityEngine;
 
 public static class DatabaseInstance
 {
-    private static string connectionString = @"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true;AttachDbFileName=C:\Users\Legen\Documents\Github\BoostBall\Assets\Scripts\BoostBall.mdf;";
+    private static string connectionString = @$"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true;AttachDbFileName={getDataPath()};";
     public enum ballSelection{
         DefaultBall = 0,
         BeachBall = 1,
@@ -14,6 +16,11 @@ public static class DatabaseInstance
         RedBall = 5,
         YellowBall = 6
     }
+    public static string getDataPath(){
+        string data = Application.dataPath + "/Scripts/BoostBall.mdf";
+        return data.Replace("/", @"\");
+    }
+    
     public static bool RegisterUser(string username, string password){
         string query = $"INSERT INTO dbo.Player (username, password, lifetime_coins, current_coins, high_score) VALUES ('{username}', '{password}', {0}, {0}, {0})";
         string query2 = $"SELECT * FROM dbo.Player WHERE username='{username}'";
@@ -59,6 +66,7 @@ public static class DatabaseInstance
 
     public static bool Login(string username, string password){
         bool wasRead = false;
+        int ID = -1;
         string query2 = $"SELECT * FROM dbo.Player WHERE username='{username}' and password='{password}'";
         using(System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connectionString)){
             List<string> list = new List<string>();
@@ -67,10 +75,12 @@ public static class DatabaseInstance
                 using(System.Data.SqlClient.SqlDataReader reader = command2.ExecuteReader()){
                     while(reader.Read()){
                         wasRead = true;
-                        int ID = reader.GetInt32(reader.GetOrdinal("ID"));
-                        createJSON(ID, conn);
+                        ID = reader.GetInt32(reader.GetOrdinal("ID"));
                         break;
                     }
+                }
+                if(wasRead){
+                    createJSON(ID, conn);
                 }
             }
         }
@@ -158,6 +168,7 @@ public static class DatabaseInstance
         addCoins(cost * -1);
         string query = $"UPDATE dbo.OwnedBalls SET isOwned=1 WHERE ID={Player.ID} and ballID={ballID}";
         using(SqlConnection conn = new SqlConnection(connectionString)){
+            conn.Open();
             using(SqlCommand command = new SqlCommand(query, conn)){
                 command.ExecuteNonQuery();
             }
@@ -215,6 +226,7 @@ public static class DatabaseInstance
         List<PlayerScore> scores = new List<PlayerScore>();
         string query = $"SELECT high_score FROM dbo.Player ORDER BY high_score DESC";
         using(SqlConnection conn = new SqlConnection(connectionString)){
+            conn.Open();
             using(SqlCommand command = new SqlCommand(connectionString)){
                 using(SqlDataReader reader = command.ExecuteReader()){
                     int i = 0;
@@ -232,6 +244,7 @@ public static class DatabaseInstance
     public static void equipSkin(int ballID){
         string query = $"UPDATE dbo.CurrentBall SET ballID={ballID} WHERE ID={Player.ID}";
         using(SqlConnection conn = new SqlConnection(connectionString)){
+            conn.Open();
             using(SqlCommand command = new SqlCommand(query, conn)){
                 command.ExecuteNonQuery();
             }
@@ -241,6 +254,7 @@ public static class DatabaseInstance
     public static void setHighScore(int highScore){
         string query = $"UPDATE dbo.Player SET high_score={highScore} WHERE ID={Player.ID}";
         using(SqlConnection conn = new SqlConnection(connectionString)){
+            conn.Open();
             using(SqlCommand command = new SqlCommand(query, conn)){
                 command.ExecuteNonQuery();
             }

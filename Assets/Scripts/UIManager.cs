@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using System.IO;
 using TMPro;
 
 public class UIManager : MonoBehaviour
@@ -11,17 +11,35 @@ public class UIManager : MonoBehaviour
     public GameObject leaderboardPanel;
     public GameObject customizationPanel;
     public GameObject accountPanel;
-    public GameObject gameOverlay;
+    public GameObject gameOverScreen;
     public GameObject registerLoginPanel;
     public GameObject accountDetailsPanel;
     public GameObject playerBall;
     public GameObject txtRegisterUsername;
     public GameObject txtRegisterPassword;
     public TMP_Text txtErrorMessage;
-    private string password;
-    private string username;
+    public string password;
+    public string username;
     public TMP_Text costMessage;
+    public TMP_Text storeErrorMessage;
     public GameObject buyButton;
+    public GameObject selectButton;
+    public TMP_Text coinsMessage;
+    public TMP_Text usernameMessage;
+    public TMP_Text highScoreMessage;
+    private string lowFundsErrorMessage = "Cannot afford this item.";
+    public Sprite defaultBallSprite;
+    public Sprite beachBallSprite;
+    public Sprite bowlingBallSprite;
+    public Sprite greenBallSprite;
+    public Sprite pinkBallSprite;
+    public Sprite redBallSprite;
+    public Sprite yellowBallSprite;
+    private int currentCoins;
+    private int currentScore;
+
+    public TMP_Text gameoverCoins;
+    public TMP_Text gameoverScore;
 
     //Customization panel variables
     public int selectedBall = 0;
@@ -29,12 +47,13 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mainMenuPanel.SetActive(true);
-        leaderboardPanel.SetActive(false);
-        customizationPanel.SetActive(false);
-        accountPanel.SetActive(false);
-        gameOverlay.SetActive(false);
-        registerLoginPanel.SetActive(false);
+        showMainMenuPanel();
+    }
+
+    void Update(){
+        currentCoins = 0;
+        currentScore = 0;
+        //stuff to call GameOver visible
     }
 
     public void showMainMenuPanel()
@@ -49,11 +68,33 @@ public class UIManager : MonoBehaviour
         leaderboardPanel.SetActive(false);
         customizationPanel.SetActive(false);
         accountPanel.SetActive(false);
-        gameOverlay.SetActive(false);
+        // gameOverlay.SetActive(false);
         registerLoginPanel.SetActive(false);
     }
     public void changeBallSkin(int ballID){
-
+        switch(ballID){
+            case 0:
+                playerBall.GetComponent<SpriteRenderer>().sprite = defaultBallSprite;
+                break;
+            case 1:
+                playerBall.GetComponent<SpriteRenderer>().sprite = beachBallSprite;
+                break;
+            case 2:
+                playerBall.GetComponent<SpriteRenderer>().sprite = bowlingBallSprite;
+                break;
+            case 3:
+                playerBall.GetComponent<SpriteRenderer>().sprite = greenBallSprite;
+                break;
+            case 4:
+                playerBall.GetComponent<SpriteRenderer>().sprite = pinkBallSprite;
+                break;
+            case 5:
+                playerBall.GetComponent<SpriteRenderer>().sprite = redBallSprite;
+                break;
+            case 6:
+                playerBall.GetComponent<SpriteRenderer>().sprite = yellowBallSprite;
+                break;
+        }
     }
 
     public void setPassword(string s){
@@ -69,13 +110,14 @@ public class UIManager : MonoBehaviour
         txtErrorMessage.text = string.Empty;
         if(!error){
             txtErrorMessage.text = "Username already taken.";
+        } else {
+            showMainMenuPanel();
         }
-        showMainMenuPanel();
     }
 
     public void Login(){
         txtErrorMessage.text = string.Empty;
-        if(DatabaseInstance.Login(username, password)){
+        if(!DatabaseInstance.Login(username, password)){
         txtErrorMessage.text = "Invalid username or password";
         } else {
             showMainMenuPanel();
@@ -93,8 +135,16 @@ public class UIManager : MonoBehaviour
         leaderboardPanel.SetActive(true);
         customizationPanel.SetActive(false);
         accountPanel.SetActive(false);
-        gameOverlay.SetActive(false);
+        gameOverScreen.SetActive(false);
         registerLoginPanel.SetActive(false);
+        leaderBoardMethod();
+    }
+
+    public void leaderBoardMethod(){
+        List<PlayerScore> scores = DatabaseInstance.getTopTenScores();
+        foreach(PlayerScore score in scores){
+            //code to spawn in stuff here
+        }
     }
 
     public void showCustomizationPanel()
@@ -106,8 +156,12 @@ public class UIManager : MonoBehaviour
             leaderboardPanel.SetActive(false);
             customizationPanel.SetActive(true);
             accountPanel.SetActive(false);
-            gameOverlay.SetActive(false);
+            gameOverScreen.SetActive(false);
             registerLoginPanel.SetActive(false);
+            storeErrorMessage.text = "";
+            costMessage.text = "";
+            buyButton.SetActive(false);
+            selectButton.SetActive(false);
         }
         
     }
@@ -117,7 +171,7 @@ public class UIManager : MonoBehaviour
         mainMenuPanel.SetActive(false);
         leaderboardPanel.SetActive(false);
         customizationPanel.SetActive(false);
-        gameOverlay.SetActive(false);
+        gameOverScreen.SetActive(false);
 
 
         if(Player.ID == -1){
@@ -127,20 +181,13 @@ public class UIManager : MonoBehaviour
         } else {
             registerLoginPanel.SetActive(false);
             accountPanel.SetActive(true);
+            coinsMessage.text = $"Coins: {Player.currentCoins}";
+            highScoreMessage.text = $"High Score: {Player.highScore}";
+            usernameMessage.text = $"Username: {Player.username}";
         }
     }
 
-    public void showGameplayPanel()
-    {
-        mainMenuPanel.SetActive(false);
-        leaderboardPanel.SetActive(false);
-        customizationPanel.SetActive(false);
-        accountPanel.SetActive(true);
-        gameOverlay.SetActive(false);
-        registerLoginPanel.SetActive(false);
-    }
-
-    public void loadGameplayScene()
+    public void showGameOverPanel()
     {
         mainMenuPanel.SetActive(false);
         leaderboardPanel.SetActive(false);
@@ -148,7 +195,19 @@ public class UIManager : MonoBehaviour
         accountPanel.SetActive(false);
         gameOverlay.SetActive(true);
         registerLoginPanel.SetActive(false);
+        gameoverCoins.text = $"Coins: {currentCoins}";
+        gameoverScore.text = $"Score: {currentScore}";
     }
+
+    // public void loadGameplayScene()
+    // {
+    //     mainMenuPanel.SetActive(false);
+    //     leaderboardPanel.SetActive(false);
+    //     customizationPanel.SetActive(false);
+    //     accountPanel.SetActive(false);
+    //     // gameOverlay.SetActive(true);
+    //     registerLoginPanel.SetActive(false);
+    // }
 
     public void buyBall(){
         switch (selectedBall){
@@ -177,113 +236,166 @@ public class UIManager : MonoBehaviour
     }
 
     public void selectDefaultBall(){
-        selectedBall = 0;
-        buyButton.SetActive(false);
-        costMessage.text = "";
-    }
-
-    public void buyBeachBall(){
-        DatabaseInstance.buyBeachBall();
-        showMainMenuPanel();
-    }
-    public void selectBeachBall(){
-        selectedBall = 1;
+        selectedBall = (int)DatabaseInstance.ballSelection.DefaultBall;
         if(doesPlayerOwnBall(selectedBall)){
             buyButton.SetActive(false);
+            selectButton.SetActive(true);
             costMessage.text = "";
         } else {
             buyButton.SetActive(true);
-            costMessage.text = $"Cost: {DatabaseInstance.getBallCost(6)}";
+            selectButton.SetActive(false);
+            costMessage.text = $"Cost: {DatabaseInstance.getBallCost(selectedBall)}";
+        }
+        
+    }
+
+    public void buyBeachBall(){
+        if(DatabaseInstance.getBallCost(selectedBall) <= Player.currentCoins){
+            storeErrorMessage.text = "";
+            DatabaseInstance.buyBeachBall();
+            equipBallSkin(selectedBall);
+            showMainMenuPanel();
+        } else {
+            storeErrorMessage.text = lowFundsErrorMessage;
+        }
+        
+    }
+    public void selectBeachBall(){
+        selectedBall = (int)DatabaseInstance.ballSelection.BeachBall;
+        if(doesPlayerOwnBall(selectedBall)){
+            buyButton.SetActive(false);
+            selectButton.SetActive(true);
+            costMessage.text = "";
+        } else {
+            buyButton.SetActive(true);
+            selectButton.SetActive(false);
+            costMessage.text = $"Cost: {DatabaseInstance.getBallCost(selectedBall)}";
         }
     }
 
     public void buyBowlingBall(){
-        DatabaseInstance.buyBowlingBall();
-        showMainMenuPanel();
+        if(DatabaseInstance.getBallCost(selectedBall) <= Player.currentCoins){
+            DatabaseInstance.buyBowlingBall();
+            equipBallSkin(selectedBall);
+            showMainMenuPanel();
+        } else {
+            storeErrorMessage.text = lowFundsErrorMessage;
+        }
+        
     }
     public void selectBowlingBall(){
-        selectedBall = 2;
+        selectedBall = (int)DatabaseInstance.ballSelection.BowlingBall;
         if(doesPlayerOwnBall(selectedBall)){
             buyButton.SetActive(false);
+            selectButton.SetActive(true);
             costMessage.text = "";
         } else {
             buyButton.SetActive(true);
-            costMessage.text = $"Cost: {DatabaseInstance.getBallCost(2)}";
+            selectButton.SetActive(false);
+            costMessage.text = $"Cost: {DatabaseInstance.getBallCost(selectedBall)}";
         }
     }
     public void buyGreenBall(){
-        DatabaseInstance.buyBowlingBall();
-        showMainMenuPanel();
+        if(DatabaseInstance.getBallCost(selectedBall) <= Player.currentCoins){
+            DatabaseInstance.buyBowlingBall();
+            equipBallSkin(selectedBall);
+            showMainMenuPanel();
+        } else {
+            storeErrorMessage.text = lowFundsErrorMessage;
+        }
+        
     }
     public void selectGreenBall(){
-        selectedBall = 3;
+        selectedBall = (int)DatabaseInstance.ballSelection.GreenBall;
+        storeErrorMessage.text = "";
         if(doesPlayerOwnBall(selectedBall)){
             buyButton.SetActive(false);
+            selectButton.SetActive(true);
             costMessage.text = "";
         } else {
             buyButton.SetActive(true);
-            costMessage.text = $"Cost: {DatabaseInstance.getBallCost(3)}";
+            selectButton.SetActive(false);
+            costMessage.text = $"Cost: {DatabaseInstance.getBallCost(selectedBall)}";
         }
     }
 
     public void buyPinkBall(){
-        DatabaseInstance.buyPinkBall();
-        showMainMenuPanel();
+        if(DatabaseInstance.getBallCost(selectedBall) <= Player.currentCoins){
+            DatabaseInstance.buyPinkBall();
+            equipBallSkin(selectedBall);
+            showMainMenuPanel();
+        } else {
+            storeErrorMessage.text = lowFundsErrorMessage;
+        }
+        
     }
     public void selectPinkBall(){
-        selectedBall = 4;
+        selectedBall = (int)DatabaseInstance.ballSelection.PinkBall;
         if(doesPlayerOwnBall(selectedBall)){
             buyButton.SetActive(false);
+            selectButton.SetActive(true);
             costMessage.text = "";
         } else {
             buyButton.SetActive(true);
-            costMessage.text = $"Cost: {DatabaseInstance.getBallCost(4)}";
+            selectButton.SetActive(false);
+            costMessage.text = $"Cost: {DatabaseInstance.getBallCost(selectedBall)}";
         }
     }
 
     public void buyRedBall(){
-        DatabaseInstance.buyRedBall();
-        showMainMenuPanel();
+        if(DatabaseInstance.getBallCost(selectedBall) <= Player.currentCoins){
+            DatabaseInstance.buyRedBall();
+            equipBallSkin(selectedBall);
+            showMainMenuPanel();
+        } else {
+            storeErrorMessage.text = lowFundsErrorMessage;
+        }
+        
     }
     public void selectRedBall(){
-        selectedBall = 5;
+        selectedBall = (int)DatabaseInstance.ballSelection.RedBall;
         if(doesPlayerOwnBall(selectedBall)){
             buyButton.SetActive(false);
+            selectButton.SetActive(true);
             costMessage.text = "";
         } else {
             buyButton.SetActive(true);
-            costMessage.text = $"Cost: {DatabaseInstance.getBallCost(5)}";
+            selectButton.SetActive(false);
+            costMessage.text = $"Cost: {DatabaseInstance.getBallCost(selectedBall)}";
         }
     }
 
     public void buyYellowBall(){
-        DatabaseInstance.buyYellowBall();
-        showMainMenuPanel();
+        if(DatabaseInstance.getBallCost(selectedBall) <= Player.currentCoins){
+            DatabaseInstance.buyYellowBall();
+            equipBallSkin(selectedBall);
+            showMainMenuPanel();
+        } else {
+            storeErrorMessage.text = lowFundsErrorMessage;
+        }
     }
     public void selectYellowBall(){
-        selectedBall = 6;
+        selectedBall = (int)DatabaseInstance.ballSelection.YellowBall;
         if(doesPlayerOwnBall(selectedBall)){
             buyButton.SetActive(false);
+            selectButton.SetActive(true);
             costMessage.text = "";
         } else {
             buyButton.SetActive(true);
-            costMessage.text = $"Cost: {DatabaseInstance.getBallCost(6)}";
+            selectButton.SetActive(false);
+            costMessage.text = $"Cost: {DatabaseInstance.getBallCost(selectedBall)}";
         }
     }
 
     public void pressSelectButton(){
-        if(doesPlayerOwnBall(selectedBall)){
-            //finish
-        }
+        equipBallSkin(selectedBall);
         showMainMenuPanel();
     }
 
     public void checkCoinsAndHS(){
-        int coins = 0;
-        int score = 0;
-        DatabaseInstance.addCoins(coins);
-        if(score > Player.highScore){
-            DatabaseInstance.setHighScore(score);
+        DatabaseInstance.addCoins(currentCoins);
+        if(currentScore > Player.highScore){
+            DatabaseInstance.setHighScore(currentScore);
         }
     }
     public bool doesPlayerOwnBall(int ballID){
@@ -291,5 +403,8 @@ public class UIManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+    public void equipBallSkin(int ballID){
+        DatabaseInstance.equipSkin(ballID);
     }
 }
