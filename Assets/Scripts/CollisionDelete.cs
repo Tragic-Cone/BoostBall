@@ -8,6 +8,7 @@ public class CollisionDelete : MonoBehaviour
     private float IFrames;
     public AudioClip hitSound;
     public AudioClip deadSound;
+    public bool isDead = false;
 
     private void Start()
     {
@@ -35,7 +36,8 @@ public class CollisionDelete : MonoBehaviour
             }
             else
             {
-                this.gameObject.active = false;
+                isDead = true;
+                //this.gameObject.active = false;
                 AudioSource.PlayClipAtPoint(deadSound, transform.position);
             }
             
@@ -44,12 +46,18 @@ public class CollisionDelete : MonoBehaviour
         }
         else if(collision.gameObject.tag == "void")
         {
-            this.gameObject.active = false;
+            isDead = true;
+            //this.gameObject.active = false;
             AudioSource.PlayClipAtPoint(deadSound, transform.position);
         }
         if (collision.gameObject.tag == "start boost")
         {
             Destroy(collision.GetComponent<Collider>().gameObject);
         }
+    }
+
+    public bool getIsDead()
+    {
+        return isDead;
     }
 }
