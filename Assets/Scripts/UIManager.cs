@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.IO;
 using TMPro;
 
@@ -36,6 +37,11 @@ public class UIManager : MonoBehaviour
     public Sprite yellowBallSprite;
     private int currentCoins;
     private int currentScore;
+    public ObjectCollector oc;
+    public ScoreCalculator sc;
+    public CollisionDelete cd;
+    public GameObject uiHolder;
+    public GameObject ballPlaceholder;
 
     public TMP_Text gameoverCoins;
     public TMP_Text gameoverScore;
@@ -50,9 +56,18 @@ public class UIManager : MonoBehaviour
     }
 
     void Update(){
-        currentCoins = 0;
-        currentScore = 0;
         //stuff to call GameOver visible
+        if(cd.getIsDead()){
+            cd.setIsDead(false);
+            checkCoinsAndHS();
+            playerBall.SetActive(false);
+            uiHolder.SetActive(true);
+            showGameOverPanel();
+        }
+    }
+
+    public void returnHome(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void showMainMenuPanel()
@@ -74,24 +89,31 @@ public class UIManager : MonoBehaviour
         switch(ballID){
             case 0:
                 playerBall.GetComponent<SpriteRenderer>().sprite = defaultBallSprite;
+                ballPlaceholder.GetComponent<SpriteRenderer>().sprite = defaultBallSprite;
                 break;
             case 1:
                 playerBall.GetComponent<SpriteRenderer>().sprite = beachBallSprite;
+                ballPlaceholder.GetComponent<SpriteRenderer>().sprite = beachBallSprite;
                 break;
             case 2:
                 playerBall.GetComponent<SpriteRenderer>().sprite = bowlingBallSprite;
+                ballPlaceholder.GetComponent<SpriteRenderer>().sprite = bowlingBallSprite;
                 break;
             case 3:
                 playerBall.GetComponent<SpriteRenderer>().sprite = greenBallSprite;
+                ballPlaceholder.GetComponent<SpriteRenderer>().sprite = greenBallSprite;
                 break;
             case 4:
                 playerBall.GetComponent<SpriteRenderer>().sprite = pinkBallSprite;
+                ballPlaceholder.GetComponent<SpriteRenderer>().sprite = pinkBallSprite;
                 break;
             case 5:
                 playerBall.GetComponent<SpriteRenderer>().sprite = redBallSprite;
+                ballPlaceholder.GetComponent<SpriteRenderer>().sprite = redBallSprite;
                 break;
             case 6:
                 playerBall.GetComponent<SpriteRenderer>().sprite = yellowBallSprite;
+                ballPlaceholder.GetComponent<SpriteRenderer>().sprite = yellowBallSprite;
                 break;
         }
     }
@@ -392,6 +414,8 @@ public class UIManager : MonoBehaviour
     }
 
     public void checkCoinsAndHS(){
+        currentCoins = oc.getCoins();
+        currentScore = sc.getScore();
         DatabaseInstance.addCoins(currentCoins);
         if(currentScore > Player.highScore){
             DatabaseInstance.setHighScore(currentScore);

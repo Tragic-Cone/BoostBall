@@ -60,4 +60,8 @@ public class CollisionDelete : MonoBehaviour
     {
         return isDead;
     }
+
+    public void setIsDead(bool isDead){
+        this.isDead = isDead;
+    }
 }

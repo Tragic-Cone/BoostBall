@@ -143,23 +143,21 @@ public static class DatabaseInstance
     }
 
     public static void addCoins(int coins){
-        int currentCoins = 0;
-        int lifetimeCoins = 0;
         string query = $"SELECT * FROM dbo.Player WHERE ID={Player.ID}";
         using(SqlConnection conn = new SqlConnection(connectionString)){
             conn.Open();
             using(SqlCommand command = new SqlCommand(query, conn)){
                 using(SqlDataReader reader = command.ExecuteReader()){
                     while(reader.Read()){
-                        currentCoins = reader.GetInt32(reader.GetOrdinal("current_coins"));
-                        lifetimeCoins = reader.GetInt32(reader.GetOrdinal("lifetime_coins"));
+                        Player.currentCoins = reader.GetInt32(reader.GetOrdinal("current_coins"));
+                        Player.lifetimeCoins = reader.GetInt32(reader.GetOrdinal("lifetime_coins"));
                         break;
                     }
                 }
             }
             Player.currentCoins += coins;
             Player.lifetimeCoins += coins;
-            query = $"UPDATE dbo.Player SET current_coins={currentCoins}, lifetimeCoins={lifetimeCoins} WHERE ID={Player.ID}";
+            query = $"UPDATE dbo.Player SET current_coins={Player.currentCoins}, lifetime_coins={Player.lifetimeCoins} WHERE ID={Player.ID}";
             using(SqlCommand command = new SqlCommand(query, conn)){
                 command.ExecuteNonQuery();
             }
