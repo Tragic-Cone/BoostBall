@@ -224,10 +224,10 @@ public static class DatabaseInstance
     }
     public static List<PlayerScore> getTopTenScores(){
         List<PlayerScore> scores = new List<PlayerScore>();
-        string query = $"SELECT high_score FROM dbo.Player ORDER BY high_score DESC";
+        string query = $"SELECT username, high_score FROM dbo.Player ORDER BY high_score DESC";
         using(SqlConnection conn = new SqlConnection(connectionString)){
             conn.Open();
-            using(SqlCommand command = new SqlCommand(connectionString)){
+            using(SqlCommand command = new SqlCommand(query, conn)){
                 using(SqlDataReader reader = command.ExecuteReader()){
                     int i = 0;
                     while(reader.Read() && i < 10){

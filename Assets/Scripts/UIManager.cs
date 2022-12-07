@@ -13,7 +13,6 @@ public class UIManager : MonoBehaviour
     public GameObject accountPanel;
     public GameObject gameOverScreen;
     public GameObject registerLoginPanel;
-    public GameObject accountDetailsPanel;
     public GameObject playerBall;
     public GameObject txtRegisterUsername;
     public GameObject txtRegisterPassword;
@@ -68,7 +67,7 @@ public class UIManager : MonoBehaviour
         leaderboardPanel.SetActive(false);
         customizationPanel.SetActive(false);
         accountPanel.SetActive(false);
-        // gameOverlay.SetActive(false);
+        gameOverScreen.SetActive(false);
         registerLoginPanel.SetActive(false);
     }
     public void changeBallSkin(int ballID){
@@ -193,7 +192,7 @@ public class UIManager : MonoBehaviour
         leaderboardPanel.SetActive(false);
         customizationPanel.SetActive(false);
         accountPanel.SetActive(false);
-        gameOverlay.SetActive(true);
+        gameOverScreen.SetActive(true);
         registerLoginPanel.SetActive(false);
         gameoverCoins.text = $"Coins: {currentCoins}";
         gameoverScore.text = $"Score: {currentScore}";
