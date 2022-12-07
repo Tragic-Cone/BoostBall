@@ -42,6 +42,27 @@ public class UIManager : MonoBehaviour
     public CollisionDelete cd;
     public GameObject uiHolder;
     public GameObject ballPlaceholder;
+    public TMP_Text username1;
+    public TMP_Text username2;
+    public TMP_Text username3;
+    public TMP_Text username4;
+    public TMP_Text username5;
+    public TMP_Text username6;
+    public TMP_Text username7;
+    public TMP_Text username8;
+    public TMP_Text username9;
+    public TMP_Text username10;
+
+    public TMP_Text score1;
+    public TMP_Text score2;
+    public TMP_Text score3;
+    public TMP_Text score4;
+    public TMP_Text score5;
+    public TMP_Text score6;
+    public TMP_Text score7;
+    public TMP_Text score8;
+    public TMP_Text score9;
+    public TMP_Text score10;
 
     public TMP_Text gameoverCoins;
     public TMP_Text gameoverScore;
@@ -163,8 +184,53 @@ public class UIManager : MonoBehaviour
 
     public void leaderBoardMethod(){
         List<PlayerScore> scores = DatabaseInstance.getTopTenScores();
+        int i = 1;
         foreach(PlayerScore score in scores){
-            //code to spawn in stuff here
+            switch(i){
+                case 1:
+                    username1.text = score.username;
+                    score1.text = $"{score.highScore}";
+                    break;
+                case 2:
+                    username2.text = score.username;
+                    score2.text = $"{score.highScore}";
+                    break;
+                case 3:
+                    username3.text = score.username;
+                    score3.text = $"{score.highScore}";
+                    break;
+                case 4:
+                    username4.text = score.username;
+                    score4.text = $"{score.highScore}";
+                    break;
+                case 5:
+                    username5.text = score.username;
+                    score5.text = $"{score.highScore}";
+                    break;
+                case 6:
+                    username6.text = score.username;
+                    score6.text = $"{score.highScore}";
+                    break;
+                case 7:
+                    username7.text = score.username;
+                    score7.text = $"{score.highScore}";
+                    break;
+                case 8:
+                    username8.text = score.username;
+                    score8.text = $"{score.highScore}";
+                    break;
+                case 9:
+                    username9.text = score.username;
+                    score9.text = $"{score.highScore}";
+                    break;
+                case 10:
+                    username10.text = score.username;
+                    score10.text = $"{score.highScore}";
+                    break;
+                default:
+                    break;
+            }
+            i++;
         }
     }
 
