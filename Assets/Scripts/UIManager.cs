@@ -384,7 +384,7 @@ public class UIManager : MonoBehaviour
     }
     public void buyGreenBall(){
         if(DatabaseInstance.getBallCost(selectedBall) <= Player.currentCoins){
-            DatabaseInstance.buyGreenBall();
+            DatabaseInstance.buyBowlingBall();
             equipBallSkin(selectedBall);
             showMainMenuPanel();
         } else {
