@@ -134,7 +134,7 @@ public class PlatformSpawning : MonoBehaviour
             }
             float xPosition = Random.Range(-5f, 5f);
             float yPosition = 10f + maxY;
-            spawnPosition.y += yPosition;
+            spawnPosition.y = yPosition;
             spawnPosition.x = xPosition;
             if(Random.Range(0,5) == 0)
             {
